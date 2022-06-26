@@ -45,8 +45,10 @@ import { requireAuth } from './controllers/routes/auth.router';
           .catch((error) => {
             console.log(error);
             res
-              .status(500)
-              .send('There was an error processing the image from the url.');
+              .status(422)
+              .send(
+                `There was an error processing the image from the url - ${image_url}`
+              );
           });
       }
 
